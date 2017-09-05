@@ -2,6 +2,8 @@ import { Meteor } from 'meteor/meteor';
 import { ServiceConfiguration } from 'meteor/service-configuration';
 import SimpleSchema from 'simpl-schema';
 
+import '../imports/api/NewEntry';
+
 // ServiceConfiguration.configurations.upsert(
 //   { service: "facebook" },
 //   {
