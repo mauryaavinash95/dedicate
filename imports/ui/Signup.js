@@ -67,7 +67,6 @@ export default class Signup extends React.Component {
         return (
             <div>
                 <h3>Dedicate!</h3>
-
                 <form onSubmit={this.onSubmit.bind(this)}>
                     <input type="text" ref="email" placeholder="Email" />
                     <input type="password" ref="password" placeholder="Password" />
