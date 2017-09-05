@@ -20,6 +20,8 @@ export const routes = (
 
 export const onAuthChange = (userAuthStatus) => {
     const currentPage = browserHistory.getCurrentLocation().pathname;
+    // console.log("userAuthStatus : ", userAuthStatus);
+    // console.log("currentPage : ", currentPage);
     if (!userAuthStatus && authRoutes.includes(currentPage)) {
         browserHistory.push("/");
     }
