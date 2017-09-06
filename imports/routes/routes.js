@@ -4,18 +4,16 @@ import { Router, Route, browserHistory } from 'react-router';
 import Login from '../ui/Login';
 import Home from '../ui/Home';
 import Signup from '../ui/Signup';
-import Posts from '../ui/Posts';
 import { NotFound } from '../ui/NotFound';
 
 const publicRoutes = ['/', '/signup', '*'];
-const authRoutes = ['/posts', "/home"];
+const authRoutes = ["/home"];
 
 export const routes = (
     <Router history={browserHistory}>
         <Route path="/" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route path="/home" component={Home} />
-        <Route path="/posts" component={Posts} />
         <Route path="*" component={NotFound} />
     </Router>
 )
