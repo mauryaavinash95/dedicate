@@ -7,7 +7,6 @@ export default class EditEntry extends React.Component {
             entry: this.props.newEntry,
             error: ''
         }
-        console.log("EditEntry : ", this.props);
     }
 
     onSubmit(e) {

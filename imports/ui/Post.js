@@ -1,5 +1,6 @@
 import React from 'react';
 import EditEntry from './EditEntry';
+import moment from 'moment'
 
 export default class Post extends React.Component {
 
@@ -18,7 +19,7 @@ export default class Post extends React.Component {
             <div>
                 <h4>Post: </h4>
                 <p>{this.props.newEntry}</p>
-                ({this.props.date.toISOString()})
+                (Last Edited {moment(this.props.date).fromNow()})
                 <br />
                 <button onClick={this.deleteEntry.bind(this, this.props._id)}>Delete</button>
                 <EditEntry key={this.props.newEntry._id} {...this.props} />

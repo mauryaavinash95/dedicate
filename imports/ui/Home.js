@@ -4,7 +4,7 @@ import { Accounts } from 'meteor/accounts-base';
 
 import Header from './Header';
 import Post from './Post';
-import { Entries } from '../api/NewEntry';
+import { Entries, users } from '../api/NewEntry';
 import AddEntry from './AddEntry';
 
 export default class Home extends React.Component {
@@ -23,7 +23,7 @@ export default class Home extends React.Component {
             this.setState({
                 entries,
             })
-        })
+        });
     }
 
     componentWillUnmount() {
@@ -48,7 +48,6 @@ export default class Home extends React.Component {
         return (
             <div>
                 <Header />
-                Welcome {Meteor.userId()}
                 <AddEntry />
                 {this.showEntries()}
             </div>

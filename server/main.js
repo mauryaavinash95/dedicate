@@ -64,4 +64,5 @@ Accounts.validateNewUser((user) => {
 
 Meteor.startup(() => {
   // code to run on server at startup
+  process.env.MAIL_URL = 'smtp://devavinashmaurya@gmail.com:Avinash09@smtp.gmail.com:587';
 });
