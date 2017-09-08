@@ -3,7 +3,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import setimmediate from 'setimmediate';
-// import '../imports/client.js';
+import '../imports/mail.js';
 //var nodemailer = require('nodemailer');
 var tls = require('tls');
 
@@ -66,7 +66,7 @@ Meteor.startup(() => {
 						<button type="submit"> click</button>
 					</form>
 
-					{/* <div className="g-signin2" data-onsuccess={this.onSignIn.bind(this)}></div> */}
+					
 				</div>
 			);
 
@@ -74,7 +74,7 @@ Meteor.startup(() => {
 	}
 
 	render(<Blah />, document.getElementById("app"));
-	//render(app, document.getElementById("app"));
+	
 })
 
 
