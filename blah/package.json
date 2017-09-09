@@ -11,6 +11,7 @@
     "meteor-node-stubs": "~0.2.4",
     "nodemailer": "^4.1.0",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "react-google-login": "^2.9.3"
   }
 }
