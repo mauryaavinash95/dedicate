@@ -50,47 +50,18 @@ Meteor.startup(() => {
 
 		}
 
-		renderGoogleLoginButton() {
-			console.log('rendering google signin button', this)
-			var that = this;
-			gapi.signin2.render('my-sicj,vbfsgnin2', {
-				'scope': 'https://www.googleapis.com/auth/plus.login',
-				'width': 200,
-				'height': 50,
-				'longtitle': true,
-				'theme': 'light',
-				'onsuccess': function () {
-					console.log("hello");
-				},
-				'onerror': function () {
-					console.log("hello1")
-				}
-			});
-		}
-
-		componentDidMount() {
-			//this.renderGoogleLoginButton();
-			gapi.signin2.render('g-signin2', {
-				'scope': 'https://www.googleapis.com/auth/plus.login',
-				'width': 200,
-				'height': 50,
-				'longtitle': true,
-				'theme': 'dark',
-				'onsuccess': this.onSignIn
-			});
-			// window.addEventListener('google-loaded',this.renderGoogleLoginButton);
-		}
-
-		componentWillReceiveProps(nextProps) {
-			//window.addEventListener('google-loaded',this.renderGoogleLoginButton);
-		}
-		render() {
+				render() {
+			var scope = ['https://mail.google.com/',
+				'https://www.googleapis.com/auth/gmail.modify',
+				'https://www.googleapis.com/auth/gmail.compose',
+				'https://www.googleapis.com/auth/gmail.send']
 
 			return (
 				<div>
 					<GoogleLogin
 						clientId="126213461095-9vtaie5a77o70246l2qii6mt7cmcg0v1.apps.googleusercontent.com"
 						buttonText="Login"
+						scope={this.scope}
 						onSuccess={this.onSignIn.bind(this)}
 						onFailure={this.onSignIn.bind(this)}
 					/>
