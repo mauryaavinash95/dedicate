@@ -42,6 +42,11 @@ if (Meteor.isServer) {
             currentUser = currentUser[0].emails[0].address;
             console.log("currentUserData : ", currentUser);
             return currentUser;
+        },
+        showEntry(entryId) {
+            entry = Entries.find({ _id: entryId }).fetch()[0];
+            console.log("Found entry: ", entry);
+            return entry;
         }
     })
 }

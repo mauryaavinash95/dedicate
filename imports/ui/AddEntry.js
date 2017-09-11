@@ -9,9 +9,14 @@ export default class AddEntry extends React.Component {
         }
     }
 
+    componentDidMount() {
+        this.textareaEditor = textboxio.replace('#newEntry', { autosubmit: false, css: { documentStyles: ' z-index:-1' } });
+    }
+
     onSubmit(e) {
         e.preventDefault();
-        let newEntry = this.refs.newEntry.value;
+        let newEntry = this.textareaEditor.content.get();
+        // console.log("NewEntry Recieved: ", newEntry);
         if (newEntry.length < 1) {
             return this.setState({ error: "Please enter text" });
         }
@@ -22,17 +27,11 @@ export default class AddEntry extends React.Component {
             }
             else {
                 console.log("Inserted successfully");
-                Meteor.call(
-                    'sendEmail',
-                    'Avinash <devavinashmaurya@gmail.com>',
-                    'Avinash <devavinashmaurya@gmail.com>',
-                    'Hello from Meteor!',
-                    'This is a test of Email.send.'
-                );
+                this.textareaEditor.content.set('');
                 this.setState({ entry: '' });
             }
         });
-
+        return false;
     }
 
     onChange(e) {
@@ -44,11 +43,11 @@ export default class AddEntry extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.onSubmit.bind(this)}>
-                <input type="text" ref="newEntry" value={this.state.entry} onChange={this.onChange.bind(this)} placeholder="Write you entry here" />
-                <button type="submit">Create New Entry</button>
+            <div>
+                <textarea id="newEntry" value={this.state.entry} style={{ overlay: { zIndex: 1 } }} onChange={this.onChange.bind(this)} placeholder="Write you entry here" />
+                <button onClick={this.onSubmit.bind(this)} type="submit">Create New Entry</button>
                 <p>{this.state.error}</p>
-            </form>
+            </div>
         )
     }
 }

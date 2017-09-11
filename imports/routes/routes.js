@@ -4,6 +4,7 @@ import { Router, Route, browserHistory } from 'react-router';
 import Login from '../ui/Login';
 import Home from '../ui/Home';
 import Signup from '../ui/Signup';
+import ShowEntry from '../ui/ShowEntry';
 import { NotFound } from '../ui/NotFound';
 
 const publicRoutes = ['/', '/signup', '*'];
@@ -14,6 +15,7 @@ export const routes = (
         <Route path="/" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route path="/home" component={Home} />
+        <Route path="/showEntry/:entryId" component={ShowEntry} />
         <Route path="*" component={NotFound} />
     </Router>
 )

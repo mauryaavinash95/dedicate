@@ -27,10 +27,11 @@ export default class extends React.Component {
 
     render() {
         return (
-            <div>
-                <div>Welcome {this.state.userEmail}</div>
-                {/* <button onClick={this.changePassword}>Change Password</button> */}
-                <button onClick={() => { Accounts.logout(); }}>Logout</button>
+            <div className="title-bar">
+                <div className="title-bar__content">
+                    <div>Welcome, {this.state.userEmail}</div>
+                    <button onClick={() => { Accounts.logout(); }}>Logout</button>
+                </div>
             </div>
         )
     }

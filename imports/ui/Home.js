@@ -3,7 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 
 import Header from './Header';
-import Post from './Post';
+import Entry from './Entry';
 import { Entries, users } from '../api/NewEntry';
 import AddEntry from './AddEntry';
 
@@ -22,6 +22,9 @@ export default class Home extends React.Component {
             let entries = Entries.find({}).fetch();
             this.setState({
                 entries,
+            }, () => {
+                // console.log("In Tracker");
+                // console.log(entries);
             })
         });
     }
@@ -34,12 +37,17 @@ export default class Home extends React.Component {
     showEntries() {
         let entries = this.state.entries;
         if (entries.length < 1) {
-            return (<p>No previous entries found </p>);
+            return (
+                <p>
+                    No previous entries found
+                </p>
+            );
         }
         else {
-            return (entries.map((entry) => {
-                return <Post key={entry._id} {...entry} />;
-            })
+            return (
+                entries.map((entry) => {
+                    return <Entry key={entry._id} {...entry} />;
+                })
             );
         }
     }

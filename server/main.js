@@ -1,8 +1,10 @@
 import { Meteor } from 'meteor/meteor';
 import { ServiceConfiguration } from 'meteor/service-configuration';
 import SimpleSchema from 'simpl-schema';
+import { WebApp } from 'meteor/webapp';
 
-import '../imports/api/NewEntry';
+import { Entries } from '../imports/api/NewEntry';
+import '../imports/api/gmail';
 
 // ServiceConfiguration.configurations.upsert(
 //   { service: "facebook" },
@@ -65,4 +67,23 @@ Accounts.validateNewUser((user) => {
 Meteor.startup(() => {
   // code to run on server at startup
   process.env.MAIL_URL = 'smtp://devavinashmaurya@gmail.com:Avinash09@smtp.gmail.com:587';
+
+  WebApp.connectHandlers.use((request, response, next) => {
+    const _id = request.url.slice(1);
+    const entry = Entries.findOne({ _id: _id });
+    if (entry) {
+      console.log("Searched for a valid entry: ", entry);
+      response.statusCode = 302;
+      response.setHeader('Location', "/showEntry/" + entry._id);
+      response.end(JSON.stringify(entry));
+      // response.statusCode = 302;
+      // response.setHeader('Location', link.url);
+      // response.end();
+      // Meteor.call('links.trackVisit', _id);
+    }
+    else {
+      next();
+    }
+  });
+
 });
