@@ -1,6 +1,7 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
+import FlipMove from 'react-flip-move';
 
 import Header from './Header';
 import Entry from './Entry';
@@ -56,8 +57,13 @@ export default class Home extends React.Component {
         return (
             <div>
                 <Header />
-                <AddEntry />
-                {this.showEntries()}
+                <br />
+                <div className="page-content">
+                    <AddEntry />
+                    <FlipMove maintainContainerHeight={true}>
+                        {this.showEntries()}
+                    </FlipMove>
+                </div>
             </div>
         )
     }

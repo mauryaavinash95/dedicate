@@ -1,0 +1,16 @@
+.addItem {
+    background: $item-bg;
+    border: 1px solid $item-border;
+    margin-bottom: $space;
+    padding: $space;
+}
+
+.addItem__heading{
+    height: 10rem;
+    margin-bottom: $space;
+}
+
+.addItem__body{
+    height: 17rem;
+    margin-bottom: $space;
+}

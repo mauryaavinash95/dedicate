@@ -1,6 +1,8 @@
 import React from 'react';
 import { Accounts } from 'meteor/accounts-base';
 import { Meteor } from 'meteor/meteor';
+import { browserHistory } from 'react-router';
+import MdExit from "react-icons/lib/md/exit-to-app";
 
 export default class extends React.Component {
     constructor(props) {
@@ -29,8 +31,8 @@ export default class extends React.Component {
         return (
             <div className="title-bar">
                 <div className="title-bar__content">
-                    <div>Welcome, {this.state.userEmail}</div>
-                    <button onClick={() => { Accounts.logout(); }}>Logout</button>
+                    <div className="title-bar__title" ><h2 onClick={() => { browserHistory.push("/home") }}>Welcome, {this.state.userEmail}</h2></div>
+                    <button title="Logout" className="button button__logout" onClick={() => { Accounts.logout(); }}><MdExit /></button>
                 </div>
             </div>
         )

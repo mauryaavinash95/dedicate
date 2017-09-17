@@ -1,0 +1,37 @@
+.boxed-view {
+    align-items: center;
+    justify-content: center;
+    background: $boxed-view-overlay-bg;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    z-index: 150;
+}
+
+.boxed-view__box {
+    background: $boxed-view-bg;
+    padding: 2.4rem;
+    text-align: center;
+    width: ($site-max-width*0.85);
+}
+
+.boxed-view__login-box {
+    background: $boxed-view-bg;
+    padding: 2.4rem;
+    text-align: center;
+    width: ($site-max-width/2);
+}
+
+.boxed-view__form {
+    display: flex;
+    flex-direction: column;
+}
+
+.boxed-view--modal {
+    background: fade-out($boxed-view-overlay-bg, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}

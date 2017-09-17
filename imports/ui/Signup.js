@@ -65,18 +65,19 @@ export default class Signup extends React.Component {
 
     render() {
         return (
-            <div>
-                <h3>Dedicate!</h3>
-                <form onSubmit={this.onSubmit.bind(this)}>
-                    <input type="text" ref="email" placeholder="Email" />
-                    <input type="password" ref="password" placeholder="Password" />
-                    <input type="password" ref="confirmPassword" placeholder="Confirm Password" />
-                    <button type="submit">Submit</button>
-                    <p>{this.state.error ? this.state.error : undefined}</p>
-                </form>
-                <Link to="/">Have an account?</Link>
+            <div className="boxed-view">
+                <div className="boxed-view__login-box">
+                    <h1>Join Dedicate!</h1>
+                    <form onSubmit={this.onSubmit.bind(this)} className="boxed-view__form">
+                        <input type="text" ref="email" placeholder="Email" />
+                        <input type="password" ref="password" placeholder="Password" />
+                        <input type="password" ref="confirmPassword" placeholder="Confirm Password" />
+                        <button className="button" type="submit">Submit</button>
+                        <p>{this.state.error ? this.state.error : undefined}</p>
+                    </form>
+                    <Link to="/">Have an account?</Link>
 
-                {/* <div className="container">
+                    {/* <div className="container">
                     <div className="row">
                         <div className="col-md-6 col-md-offset-3">
                             <AccountsUiWrapper />
@@ -86,7 +87,7 @@ export default class Signup extends React.Component {
                 <button onClick={() => { this.onLoginWithFacebook() }}>Login with Facebook </button>
                 <button onClick={() => { this.onLoginWithGoogle() }}>Login with Google </button>
                 */}
-
+                </div>
             </div>
         );
     }

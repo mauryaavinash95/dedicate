@@ -22,7 +22,7 @@ h2 {
 }
 
 p {
-    margin-bottom: $space;
+    margin-bottom: ($space/3);
 }
 
 a {
@@ -36,3 +36,4 @@ input[type=text], input[type=email], input[type=password] {
     margin-bottom: $space;
     padding: 1rem;
 }
+

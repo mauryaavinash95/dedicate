@@ -15,10 +15,10 @@ if (Meteor.isServer) {
         addNewEntry(newEntry) {
             let userId = this.userId;
             let date = new Date().toISOString();
-            console.log('UserId: ', userId);
-            console.log("Entry : ", newEntry);
-            console.log("Date : ", date);
-            Entries.insert({ userId, date, newEntry });
+            // console.log('UserId: ', userId);
+            // console.log("Entry : ", newEntry);
+            // console.log("Date : ", date);
+            Entries.insert({ userId, date, heading: newEntry.heading, body: newEntry.body, createdAt: date });
         },
         deleteEntry(entryId) {
             let userId = this.userId;
@@ -27,20 +27,27 @@ if (Meteor.isServer) {
         editEntry(entryId, newEntry) {
             let userId = this.userId;
             let date = new Date().toISOString();
-            Entries.update({ _id: entryId }, { $set: { date: date, newEntry: newEntry } })
+            // console.log('UserId: ', userId);
+            // console.log("Entry : ", newEntry);
+            // console.log("Date : ", date);
+            Entries.update({ _id: entryId }, { $set: { date: date, heading: newEntry.heading, body: newEntry.body } })
         },
         sendEmail(to, from, subject, text) {
             // Make sure that all arguments are strings.
             // check([to, from, subject, text], [String]);
             // Let other method calls from the same client start running, without
             // waiting for the email sending to complete.
-            this.unblock();
-            Email.send({ to, from, subject, text });
+            console.log("To: ", to);
+            console.log("From: ", from);
+            console.log("Subject: ", subject);
+            console.log("Text: ", text);
+            // this.unblock();
+            // Email.send({ to, from, subject, text });
         },
         currentUser() {
             currentUser = Meteor.users.find({ _id: this.userId }).fetch();
             currentUser = currentUser[0].emails[0].address;
-            console.log("currentUserData : ", currentUser);
+            // console.log("currentUserData : ", currentUser);
             return currentUser;
         },
         showEntry(entryId) {

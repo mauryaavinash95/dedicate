@@ -1,5 +1,7 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
+import { Link, browserHistory } from 'react-router';
+import MdPrint from 'react-icons/lib/md/print';
 
 import HtmlEntry from './HtmlEntry';
 
@@ -38,7 +40,18 @@ export default class ShowEntry extends React.Component {
     render() {
         return (
             <div>
-                {this.renderEntry()}
+                <div className="title-bar">
+                    <div className="title-bar__content">
+                        <div className="title-bar__title" onClick={() => { browserHistory.push("/") }}><h1 >Dedicate</h1></div>
+                        <button title="Print" className="button button__logout" onClick={() => { window.print() }}><MdPrint /></button>
+                    </div>
+                </div>
+                <br />
+                <div className="page-content">
+                    <div className="item">
+                        {this.renderEntry()}
+                    </div>
+                </div>
             </div>
         )
     }

@@ -1,0 +1,37 @@
+.item {
+    background: $item-bg;
+    border: 1px solid $item-border;
+    margin-bottom: $space;
+    padding: $space;
+}
+
+.item__message {
+    color: $item-text-color;
+}
+
+.item__status-message {
+    text-overflow:ellipsis;
+    white-space: nowrap; 
+    max-width: 30%;
+    overflow: hidden; 
+    display: inline-block;
+    color: $item-text-color; 
+    font-style: italic;
+    text-align: center;
+    margin: ($space/2) ($space/2) 0 0;
+    
+    &:hover{  
+    text-overflow: inherit;
+    overflow: visible;
+    }
+}
+
+.item__options{
+    display: flex;
+    justify-content: space-between;
+}
+
+.item__content{
+    word-wrap: break-word;
+    max-width: $site-max-width;
+}
